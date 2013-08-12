@@ -1,7 +1,9 @@
 SpreeTaxonPromotionRule
 =======================
 
-Introduction goes here.
+A rule to limit a promotion based on products from a specific taxon in the order.
+
+Allows the ability to also set the number of products required from the specific taxon.
 
 Installation
 ------------
@@ -9,7 +11,7 @@ Installation
 Add spree_taxon_promotion_rule to your Gemfile:
 
 ```ruby
-gem 'spree_taxon_promotion_rule'
+gem 'spree_taxon_promotion_rule', github: 'Hates/spree_taxon_promotion_rule'
 ```
 
 Bundle your dependencies and run the installation generator:
@@ -36,5 +38,3 @@ Simply add this require statement to your spec_helper:
 ```ruby
 require 'spree_taxon_promotion_rule/factories'
 ```
-
-Copyright (c) 2013 [name of extension creator], released under the New BSD License
