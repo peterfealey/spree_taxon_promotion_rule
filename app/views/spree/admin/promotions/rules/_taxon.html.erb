@@ -1,0 +1,9 @@
+<div class="field alpha omega eight columns taxons_rule_taxons">
+  <%= label_tag "#{param_prefix}_taxon_ids_string", Spree.t('taxon_rule.choose_taxon') %>
+  <%= hidden_field_tag "#{param_prefix}[taxon_ids_string]", promotion_rule.taxon_ids.join(","), class: "fullwidth", id: "product_taxon_ids" %>
+</div>
+<div class="field alpha omega eight columns">
+  <label>
+    <%= Spree.t('taxon_rule.label', select: select_tag("#{param_prefix}[preferred_number_of_products]", options_for_select((1..10).to_a, promotion_rule.preferred_number_of_products), {class: 'select_taxon select2'})).html_safe %>
+  </label>
+</div>
