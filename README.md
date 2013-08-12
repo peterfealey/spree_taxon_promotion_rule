@@ -5,6 +5,8 @@ A rule to limit a promotion based on products from a specific taxon in the order
 
 Allows the ability to also set the number of products required from the specific taxon.
 
+![](https://www.dropbox.com/s/jeo4dsv70vxn7uy/rwpv.png)
+
 Installation
 ------------
 
