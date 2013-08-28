@@ -7,8 +7,6 @@ module Spree
         has_and_belongs_to_many :taxons, class_name: '::Spree::Taxon', join_table: 'spree_taxons_promotion_rules', foreign_key: 'promotion_rule_id'
         validate :only_one_promotion_per_taxon
 
-        attr_accessible :preferred_number_of_products, :taxon_ids_string
-
         preference :number_of_products, :integer, default: 1
 
         # scope/association that is used to test eligibility
