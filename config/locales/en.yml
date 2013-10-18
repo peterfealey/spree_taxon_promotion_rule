@@ -2,9 +2,9 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  spree: 
-    promotion_rule_types: 
-      taxon: 
+  spree:
+    promotion_rule_types:
+      taxon:
         name: "Taxon(s)"
         description: "Order includes products from specified taxon(s)"
         label: "sdfdf"

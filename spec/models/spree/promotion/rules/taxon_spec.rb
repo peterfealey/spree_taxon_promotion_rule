@@ -35,25 +35,25 @@ describe Spree::Promotion::Rules::Taxon do
       @line_item6 = mock_model Spree::LineItem, product: @product5, quantity: 2
     end
 
-    context "for 1 number of products" do
+    context "for one product" do
 
       before { rule.preferred_number_of_products = 1 }
 
-      it "should be eligible if one of the products is in an eligible taxon" do
+      it "is eligible if one of the products is in an eligible taxon" do
         order.stub(line_items: [@line_item1, @line_item2])
         rule.stub(eligible_taxons: [@taxon2, @taxon3])
 
         expect(rule).to be_eligible(order)
       end
 
-      it "should be eligible if one of the products is in an eligible taxon's child taxon" do
+      it "is eligible if one of the products is in an eligible taxon's child taxon" do
         order.stub(line_items: [@line_item4])
         rule.stub(taxons: [@taxon4a])
 
         expect(rule).to be_eligible(order)
       end
 
-      it "should not be eligible if none of the products is in an eligible taxon" do
+      it "is not eligible if none of the products is in an eligible taxon" do
         order.stub(line_items: [@line_item1])
         rule.stub(eligible_taxons: [@taxon2, @taxon3])
 
@@ -66,28 +66,29 @@ describe Spree::Promotion::Rules::Taxon do
 
       before { rule.preferred_number_of_products = 2 }
 
-      it "should be eligible if all of the products is in an eligible taxon" do
+      it "is eligible if all of the products is in an eligible taxon" do
         order.stub(line_items: [@line_item1, @line_item2])
         rule.stub(eligible_taxons: [@taxon1, @taxon2])
 
         expect(rule).to be_eligible(order)
       end
 
-      it "should be eligible if all of the products is in an eligible taxon's child taxon" do
+      it "is eligible if all of the products is in an eligible taxon's child taxon" do
         order.stub(line_items: [@line_item4, @line_item5])
         rule.stub(taxons: [@taxon4a])
 
         expect(rule).to be_eligible(order)
       end
 
-      it "should be eligible if all of the products is in an eligible taxon's child taxon" do
+      it "is eligible if all of the products is in an eligible taxon's child taxon" do
         order.stub(line_items: [@line_item6])
         rule.stub(taxons: [@taxon4a])
 
         expect(rule).to be_eligible(order)
 
       end
-      it "should not be eligible if one of the products is in an eligible taxon" do
+
+      it "is not eligible if one of the products is in an eligible taxon" do
         order.stub(line_items: [@line_item1, @line_item2])
         rule.stub(eligible_taxons: [@taxon2, @taxon3])
 
@@ -97,4 +98,5 @@ describe Spree::Promotion::Rules::Taxon do
     end
 
   end
+
 end
