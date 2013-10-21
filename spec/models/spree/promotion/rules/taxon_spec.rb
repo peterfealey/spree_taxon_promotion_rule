@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Spree::Promotion::Rules::Taxon do
+
   let(:rule) { Spree::Promotion::Rules::Taxon.new }
 
   context "#eligible?(order)" do
