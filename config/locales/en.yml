@@ -7,7 +7,7 @@ en:
       taxon:
         name: "Taxon(s)"
         description: "Order includes products from specified taxon(s)"
-        label: "sdfdf"
+        label: "-"
 
     taxon_rule:
       choose_products: Choose taxons
