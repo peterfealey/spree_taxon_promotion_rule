@@ -4,10 +4,11 @@ describe Spree::Promotion::Rules::Taxon do
 
   let(:rule) { Spree::Promotion::Rules::Taxon.new }
 
-  context "#eligible?(order)" do
+  describe "#eligible?" do
+
     let(:order) { Spree::Order.new }
 
-    it "should be eligible if there are no taxons" do
+    it "is eligible if there are no taxons" do
       rule.stub(eligible_taxons: [])
 
       expect(rule).to be_eligible(order)
