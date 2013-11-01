@@ -5,11 +5,10 @@ module Spree
     module Rules
       class Taxon < PromotionRule
         has_and_belongs_to_many :taxons, class_name: '::Spree::Taxon', join_table: 'spree_taxons_promotion_rules', foreign_key: 'promotion_rule_id'
-        validate :only_one_promotion_per_taxon
 
         preference :number_of_products, :integer, default: 1
 
-        # scope/association that is used to test eligibility
+        # Scope/association that is used to test eligibility
         def eligible_taxons
           taxons.collect { |t| t.self_and_descendants }.flatten.uniq
         end
@@ -33,14 +32,6 @@ module Spree
 
         def taxon_ids_string=(s)
           self.taxon_ids = s.to_s.split(',').map(&:strip)
-        end
-
-        private
-
-        def only_one_promotion_per_taxon
-          if Spree::Promotion::Rules::Taxon.all.map(&:taxons).flatten.uniq!
-            errors[:base] << "You can't create two promotions for the same taxon"
-          end
         end
 
       end
