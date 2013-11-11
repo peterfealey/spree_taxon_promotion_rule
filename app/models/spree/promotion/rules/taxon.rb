@@ -8,6 +8,10 @@ module Spree
 
         preference :number_of_products, :integer, default: 1
 
+        def applicable?(promotable)
+          promotable.is_a? Spree::Order
+        end
+
         # Scope/association that is used to test eligibility
         def eligible_taxons
           taxons.collect { |t| t.self_and_descendants }.flatten.uniq
